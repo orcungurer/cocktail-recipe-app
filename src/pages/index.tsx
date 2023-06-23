@@ -18,5 +18,6 @@ export const getStaticProps = async () => {
     props: {
       cocktails: DUMMY_COCKTAILS,
     },
+    revalidate: 1,
   };
 };
