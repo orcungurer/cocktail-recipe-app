@@ -29,7 +29,7 @@ export const DUMMY_COCKTAILS = [
     name: "Jager & Beer",
     category: "Cocktail",
     image:
-      "https://d1ynl4hb5mx7r8.cloudfront.net/wp-content/uploads/2019/06/12163841/b0b056327034f03aaeda.png",
+      "https://www.thespruceeats.com/thmb/HEcHMz3CP-zjQSgdvlEEfYBqO6o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/jager-bomb-recipe-759713-hero-01-54560094d6cd4d97bbea810aa07e772b.jpg",
     ingredients: [
       {
         name: "Jagermeister",
