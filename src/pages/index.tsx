@@ -1,10 +1,12 @@
-import Card from "@/components/ui/Card";
+import { Fragment } from "react";
+import CocktailList from "@/components/cocktails/CocktailList";
+import { DUMMY_COCKTAILS } from "@/components/data";
 
 const HomePage = () => {
   return (
-    <Card>
-      <h1>HomePage</h1>
-    </Card>
+    <Fragment>
+      <CocktailList cocktails={DUMMY_COCKTAILS} />
+    </Fragment>
   );
 };
 
