@@ -4,6 +4,7 @@ import { GetStaticProps } from "next";
 const CocktailDetailsPage = () => {
   return (
     <CocktailDetail
+      id={1}
       name="Cocktail"
       category="Cocktail"
       image="https://www.thespruceeats.com/thmb/HEcHMz3CP-zjQSgdvlEEfYBqO6o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/jager-bomb-recipe-759713-hero-01-54560094d6cd4d97bbea810aa07e772b.jpg"

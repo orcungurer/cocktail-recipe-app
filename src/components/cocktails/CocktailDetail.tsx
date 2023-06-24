@@ -1,16 +1,9 @@
 import classes from "./CocktailDetail.module.css";
 import Card from "../ui/Card";
 import Image from "next/image";
+import { Cocktail } from "@/models/cocktails";
 
-const CocktailDetail: React.FC<{
-  name: string;
-  category: string;
-  image: string;
-  ingredients: { name: string; amount: string }[];
-  instructions: string[];
-  garnish: string;
-  notes: string;
-}> = (props) => {
+const CocktailDetail: React.FC<Cocktail> = (props) => {
   return (
     <Card>
       <div className={classes.detail}>

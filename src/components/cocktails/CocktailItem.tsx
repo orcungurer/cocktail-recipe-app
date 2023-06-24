@@ -3,19 +3,11 @@ import Card from "../ui/Card";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
+import { Cocktail } from "@/models/cocktails";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const CocktailItem: React.FC<{
-  id: number;
-  name: string;
-  category: string;
-  image: string;
-  ingredients: {
-    name: string;
-    amount: string;
-  }[];
-}> = (props) => {
+const CocktailItem: React.FC<Cocktail> = (props) => {
   const router = useRouter();
 
   const showDetailsHandler = () => {

@@ -13,9 +13,9 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
           category={cocktail.category}
           image={cocktail.image}
           ingredients={cocktail.ingredients}
-          // instructions={cocktail.instructions}
-          // garnish={cocktail.garnish}
-          // notes={cocktail.notes}
+          instructions={cocktail.instructions}
+          garnish={cocktail.garnish}
+          notes={cocktail.notes}
         />
       ))}
     </ul>
