@@ -16,7 +16,6 @@ const CocktailItem: React.FC<{
     amount: string;
   }[];
 }> = (props) => {
-
   const router = useRouter();
 
   const showDetailsHandler = () => {
@@ -45,7 +44,9 @@ const CocktailItem: React.FC<{
           <p className={inter.className}>2 ingredient(s) away!</p>
         </div>
         <div className={classes.actions}>
-          <button className={inter.className} onClick={showDetailsHandler}>Show Details</button>
+          <button className={inter.className} onClick={showDetailsHandler}>
+            Show Details
+          </button>
         </div>
       </Card>
     </li>
