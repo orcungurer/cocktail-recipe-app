@@ -9,20 +9,19 @@
 }
 
 .logo {
+  color: white;
   font-size: 2rem;
 }
 
 .header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
 }
 
 .header li {
+  color: white;
   margin-left: 1rem;
 }
 
 .header a:hover {
-  color: #47ffd6;
+  color: #f2f2f2;
 }
