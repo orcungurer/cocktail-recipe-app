@@ -1,0 +1,42 @@
+.form {
+  padding: 1rem;
+}
+
+.control {
+  margin-bottom: 1rem;
+}
+
+.control label {
+  display: block;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  display: block;
+  padding: 0.25rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions button {
+  color: lightsalmon;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid lightsalmon;
+  border-radius: 0.25rem;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: lightsalmon;
+  color: white;
+}
