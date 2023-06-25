@@ -27,10 +27,21 @@
 
 .ingredients {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-content: baseline;
   gap: 0.25rem;
   min-height: 1rem;
+}
+
+.scrollable {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .ingredients span {
@@ -54,4 +65,17 @@
 
 .actions button {
   width: 100%;
+}
+
+@media screen and (max-width: 999px) {
+  .item {
+    width: 100%;
+  }
+
+  .scrollable span {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 }

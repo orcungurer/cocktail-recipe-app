@@ -26,7 +26,7 @@ const CocktailItem: React.FC<Cocktail> = (props) => {
         />
         <div className={classes.cocktail}>
           <h4 className={inter.className}>{props.name}</h4>
-          <div className={classes.ingredients}>
+          <div className={`${classes.ingredients} ${classes.scrollable}`}>
             {props.ingredients.map((ingredient) => (
               <span key={ingredient.name} className={inter.className}>
                 {ingredient.name}
