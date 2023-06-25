@@ -19,7 +19,7 @@ const MainNavigation = () => {
           </li>
           <li>
             <Link href="/new-cocktail" className={inter.className}>
-              Suggest New Cocktail
+              Suggest Cocktail
             </Link>
           </li>
         </ul>
