@@ -1,5 +1,8 @@
 .main {
-  margin: 3rem auto;
+  margin: 0 auto;
   width: 90%;
   max-width: 40rem;
+  padding-top: 5rem; 
 }
+
+/* padding-top added because fixed MainNavigation */
