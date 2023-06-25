@@ -45,6 +45,13 @@ button:active {
   color: white;
 }
 
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 /* :root {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 } */
