@@ -1,83 +1,89 @@
 import CocktailDetail from "@/components/cocktails/CocktailDetail";
 import { GetStaticProps } from "next";
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
-const CocktailDetailsPage = () => {
+dotenv.config();
+
+interface CocktailDetailProps {
+  cocktailData: {
+    id: string;
+    cocktailId: string;
+    name: string;
+    image: string;
+    ingredients: {
+      name: string;
+      amount: string;
+    }[];
+    instructions: string[];
+    notes: string;
+  };
+}
+
+const CocktailDetailsPage: React.FC<CocktailDetailProps> = (props) => {
   return (
     <CocktailDetail
-      id={1}
-      name="Cocktail"
-      category="Cocktail"
-      image="https://www.thespruceeats.com/thmb/HEcHMz3CP-zjQSgdvlEEfYBqO6o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/jager-bomb-recipe-759713-hero-01-54560094d6cd4d97bbea810aa07e772b.jpg"
-      ingredients={[
-        {
-          name: "Jagermeister",
-          amount: "1.5 oz",
-        },
-        {
-          name: "Energy drink",
-          amount: "4 oz",
-        },
-      ]}
-      instructions={[
-        "Fill a shot glass with Jagermeister.",
-        "Pour an energy drink into a glass.",
-        "Drop the shot glass into the glass and drink.",
-      ]}
-      garnish="None"
-      notes="It is recommended to drink this cocktail quickly to enjoy the combined flavors."
+      id={props.cocktailData.id}
+      cocktailId={props.cocktailData.cocktailId}
+      name={props.cocktailData.name}
+      image={props.cocktailData.image}
+      ingredients={props.cocktailData.ingredients}
+      instructions={props.cocktailData.instructions}
+      notes={props.cocktailData.notes}
     />
   );
 };
 
 export default CocktailDetailsPage;
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+  const mongodbUri = process.env.MONGODB_URI ?? "";
+
+  const client = await MongoClient.connect(mongodbUri);
+
+  const db = client.db();
+
+  const cocktailsCollection = db.collection("cocktails");
+
+  // find all documents and only include the ID field but no any other
+  // note. in js, find({}, { cocktailId: 1 }).toArray() would be enough
+  const cocktails = await cocktailsCollection.find({}).project({ cocktailId: 1 }).toArray();
+
+  client.close();
+
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          cocktailId: "1",
-        },
+    paths: cocktails.map((cocktail) => ({
+      params: {
+        cocktailId: cocktail.cocktailId,
       },
-      {
-        params: {
-          cocktailId: "2",
-        },
-      },
-    ],
+    })),
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const cocktailId = context.params?.cocktailId;
 
+  const mongodbUri = process.env.MONGODB_URI ?? "";
+
+  const client = await MongoClient.connect(mongodbUri);
+
+  const db = client.db();
+
+  const cocktailsCollection = db.collection("cocktails");
+
+  const selectedCocktail = await cocktailsCollection.findOne({ cocktailId: cocktailId });
+
   return {
     props: {
       cocktailData: {
-        id: cocktailId,
-        name: "Cocktail",
-        category: "Cocktail",
-        image:
-          "https://www.thespruceeats.com/thmb/HEcHMz3CP-zjQSgdvlEEfYBqO6o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/jager-bomb-recipe-759713-hero-01-54560094d6cd4d97bbea810aa07e772b.jpg",
-        ingredients: [
-          {
-            name: "Jagermeister",
-            amount: "1.5 oz",
-          },
-          {
-            name: "Energy drink",
-            amount: "4 oz",
-          },
-        ],
-        instructions: [
-          "Fill a shot glass with Jagermeister.",
-          "Pour an energy drink into a glass.",
-          "Drop the shot glass into the glass and drink.",
-        ],
-        garnish: "None",
-        notes:
-          "It is recommended to drink this cocktail quickly to enjoy the combined flavors.",
+        id: selectedCocktail!._id.toString(),
+        cocktailId: selectedCocktail!.cocktailId,
+        name: selectedCocktail!.name,
+        image: selectedCocktail!.image,
+        ingredients: selectedCocktail!.ingredients,
+        instructions: selectedCocktail!.instructions,
+        notes: selectedCocktail!.notes,
       },
     },
   };
