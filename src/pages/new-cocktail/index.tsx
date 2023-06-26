@@ -11,6 +11,7 @@ const NewCocktailPage = () => {
     ingredients?: string;
     instructions?: string;
     notes?: string;
+    date: string;
   }) => {
     const response = await fetch("/api/new-cocktail", {
       method: "POST",

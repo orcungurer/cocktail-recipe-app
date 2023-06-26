@@ -12,6 +12,7 @@ interface NewCocktailFormProps {
     ingredients?: string;
     instructions?: string;
     notes?: string;
+    date: string;
   }) => void;
 }
 
@@ -21,6 +22,7 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
   const ingredients = useRef<HTMLInputElement>(null);
   const instructions = useRef<HTMLInputElement>(null);
   const notes = useRef<HTMLInputElement>(null);
+  const date = new Date().toString();
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -41,6 +43,7 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
       ingredients: enteredIngredients,
       instructions: enteredInstructions,
       notes: enteredNotes,
+      date: date,
     };
 
     props.onAddCocktail(cocktailData);
