@@ -9,12 +9,11 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
         <CocktailItem
           key={cocktail.id}
           id={cocktail.id}
+          cocktailId={cocktail.cocktailId}
           name={cocktail.name}
-          category={cocktail.category}
           image={cocktail.image}
           ingredients={cocktail.ingredients}
           instructions={cocktail.instructions}
-          garnish={cocktail.garnish}
           notes={cocktail.notes}
         />
       ))}

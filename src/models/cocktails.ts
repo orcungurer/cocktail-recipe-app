@@ -1,14 +1,13 @@
 export interface Cocktail {
-  id: number;
+  id: string;
+  cocktailId: string;
   name: string;
-  category: string;
   image: string;
   ingredients: {
     name: string;
     amount: string;
   }[];
   instructions: string[];
-  garnish: string;
   notes: string;
 }
 
