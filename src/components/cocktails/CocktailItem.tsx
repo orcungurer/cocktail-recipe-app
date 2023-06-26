@@ -11,7 +11,7 @@ const CocktailItem: React.FC<Cocktail> = (props) => {
   const router = useRouter();
 
   const showDetailsHandler = () => {
-    router.push("/" + props.id);
+    router.push("/" + props.cocktailId);
   };
 
   return (
