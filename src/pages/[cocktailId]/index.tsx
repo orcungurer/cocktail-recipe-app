@@ -2,6 +2,8 @@ import CocktailDetail from "@/components/cocktails/CocktailDetail";
 import { GetStaticProps } from "next";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import { Fragment } from "react";
+import Head from "next/head";
 
 dotenv.config();
 
@@ -22,15 +24,24 @@ interface CocktailDetailProps {
 
 const CocktailDetailsPage: React.FC<CocktailDetailProps> = (props) => {
   return (
-    <CocktailDetail
-      id={props.cocktailData.id}
-      cocktailId={props.cocktailData.cocktailId}
-      name={props.cocktailData.name}
-      image={props.cocktailData.image}
-      ingredients={props.cocktailData.ingredients}
-      instructions={props.cocktailData.instructions}
-      notes={props.cocktailData.notes}
-    />
+    <Fragment>
+      <Head>
+        <title>{props.cocktailData.name}</title>
+        <meta 
+          name="description"
+          content={`Prepare your ${props.cocktailData.name} drink with ease using the ingredients and step-by-step instructions provided.`} 
+        />
+      </Head>
+      <CocktailDetail
+        id={props.cocktailData.id}
+        cocktailId={props.cocktailData.cocktailId}
+        name={props.cocktailData.name}
+        image={props.cocktailData.image}
+        ingredients={props.cocktailData.ingredients}
+        instructions={props.cocktailData.instructions}
+        notes={props.cocktailData.notes}
+      />
+    </Fragment>
   );
 };
 
