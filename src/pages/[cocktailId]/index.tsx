@@ -63,7 +63,7 @@ export const getStaticPaths = async () => {
   client.close();
 
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: cocktails.map((cocktail) => ({
       params: {
         cocktailId: cocktail.cocktailId,
