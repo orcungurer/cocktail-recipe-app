@@ -47,7 +47,7 @@
 .ingredients span {
   font-size: 0.85rem;
   background-color: lightsalmon;
-  padding: 0.25rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   width: fit-content;
   height: fit-content;
