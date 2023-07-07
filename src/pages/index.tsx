@@ -36,6 +36,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
   // then we map through each ingredient and get the name
   // and then we create a new set to remove duplications
   // after that we convert the set back into an array
+  // thus we can sort it alphabetically since its array
   // finally we map again to set value and label properties
   const ingredientOptions: IngredientOption[] = Array.from(
     new Set(
@@ -43,7 +44,9 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
         cocktail.ingredients.map((ingredient) => ingredient.name)
       )
     )
-  ).map((name) => ({ value: name, label: name }));
+  )
+    .sort((a, b) => a.localeCompare(b))
+    .map((name) => ({ value: name, label: name }));
 
   const selectIngredientsHandler = (
     newValue: readonly IngredientOption[],
