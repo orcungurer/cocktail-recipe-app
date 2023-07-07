@@ -6,8 +6,9 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import Head from "next/head";
 import Select, { ActionMeta } from "react-select";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "@/store/filter-slice";
+import { RootState } from "@/store";
 
 dotenv.config();
 
@@ -19,6 +20,17 @@ interface IngredientOption {
 const HomePage: React.FC<CocktailsProps> = (props) => {
   console.log(props.cocktails);
   const dispatch = useDispatch();
+
+  const selectedIngredients = useSelector(
+    (state: RootState) => state.filter.selectedIngredients
+  );
+
+  const selectedIngredientsAsDefault = selectedIngredients.map(
+    (ingredient) => ({
+      value: ingredient,
+      label: ingredient,
+    })
+  );
 
   // by flattenning cocktails, we map each cocktail's ingredients
   // then we map through each ingredient and get the name
@@ -59,6 +71,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
         />
       </Head>
       <Select
+        defaultValue={selectedIngredientsAsDefault}
         instanceId={useId()}
         isMulti
         name="ingredients"
