@@ -3,6 +3,10 @@ import CocktailItem from "./CocktailItem";
 import { CocktailsProps } from "@/models/cocktails";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
+import { Fragment } from "react";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const CocktailList: React.FC<CocktailsProps> = (props) => {
   const selectedIngredients = useSelector(
@@ -43,22 +47,29 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
 
   console.log(filteredCocktails);
 
+  const cocktailAmountText = `${filteredCocktails.length} Cocktails`;
+
   return (
-    <ul className={classes.list}>
-      {filteredCocktails.map((cocktail) => (
-        <CocktailItem
-          key={cocktail.id}
-          id={cocktail.id}
-          cocktailId={cocktail.cocktailId}
-          name={cocktail.name}
-          image={cocktail.image}
-          ingredients={cocktail.ingredients}
-          instructions={cocktail.instructions}
-          notes={cocktail.notes}
-          matchingIngredientsAmount={cocktail.matchingIngredientsAmount}
-        />
-      ))}
-    </ul>
+    <Fragment>
+      <p className={`${classes["cocktail-amount"]} ${inter.className}`}>
+        {cocktailAmountText}
+      </p>
+      <ul className={classes.list}>
+        {filteredCocktails.map((cocktail) => (
+          <CocktailItem
+            key={cocktail.id}
+            id={cocktail.id}
+            cocktailId={cocktail.cocktailId}
+            name={cocktail.name}
+            image={cocktail.image}
+            ingredients={cocktail.ingredients}
+            instructions={cocktail.instructions}
+            notes={cocktail.notes}
+            matchingIngredientsAmount={cocktail.matchingIngredientsAmount}
+          />
+        ))}
+      </ul>
+    </Fragment>
   );
 };
 
