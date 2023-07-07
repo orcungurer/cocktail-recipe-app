@@ -7,7 +7,11 @@ import { Cocktail } from "@/models/cocktails";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const CocktailItem: React.FC<Cocktail> = (props) => {
+interface CocktailWithMatchingIngredients extends Cocktail {
+  matchingIngredientsAmount: number;
+}
+
+const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
   const router = useRouter();
 
   const showDetailsHandler = () => {
@@ -33,7 +37,10 @@ const CocktailItem: React.FC<Cocktail> = (props) => {
               </span>
             ))}
           </div>
-          <p className={inter.className}>2 ingredient(s) away!</p>
+          <p className={inter.className}>
+            {props.ingredients.length - props.matchingIngredientsAmount}{" "}
+            ingredient(s) away!
+          </p>
         </div>
         <div className={classes.actions}>
           <button className={inter.className} onClick={showDetailsHandler}>
