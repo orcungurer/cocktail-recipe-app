@@ -18,6 +18,15 @@ const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
     router.push("/" + props.cocktailId);
   };
 
+  const remainingIngredientAmount =
+    props.ingredients.length - props.matchingIngredientsAmount;
+
+  let remainingIngredientText = `${remainingIngredientAmount} ingredient(s) away.`;
+
+  if (remainingIngredientAmount === 0) {
+    remainingIngredientText = "Ready to make! 🎉";
+  }
+
   return (
     <li className={classes.item}>
       <Card>
@@ -37,10 +46,7 @@ const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
               </span>
             ))}
           </div>
-          <p className={inter.className}>
-            {props.ingredients.length - props.matchingIngredientsAmount}{" "}
-            ingredient(s) away!
-          </p>
+          <p className={inter.className}>{remainingIngredientText}</p>
         </div>
         <div className={classes.actions}>
           <button className={inter.className} onClick={showDetailsHandler}>
