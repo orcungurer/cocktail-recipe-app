@@ -90,6 +90,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
       </Head>
       <Select
         styles={customStyles}
+        placeholder={"Select Ingredients..."}
         defaultValue={selectedIngredientsAsDefault}
         instanceId={useId()}
         isMulti
