@@ -5,12 +5,15 @@ import { CocktailsProps } from "@/models/cocktails";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import Head from "next/head";
-import Select, { ActionMeta } from "react-select";
+import Select, { ActionMeta, CSSObjectWithLabel } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "@/store/filter-slice";
 import { RootState } from "@/store";
+import { Inter } from "next/font/google";
 
 dotenv.config();
+
+const inter = Inter({ subsets: ["latin"] });
 
 interface IngredientOption {
   value: string;
@@ -64,6 +67,18 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
     }
   };
 
+  // to prevent provided error, used CSSObjectWithLabel as type
+  const customStyles = {
+    control: (provided: CSSObjectWithLabel) => ({
+      ...provided,
+      fontFamily: 'Inter, Arial, sans-serif',
+    }),
+    option: (provided: CSSObjectWithLabel) => ({
+      ...provided,
+      fontFamily: 'Inter, Arial, sans-serif',
+    }),
+  };
+
   return (
     <Fragment>
       <Head>
@@ -74,6 +89,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
         />
       </Head>
       <Select
+        styles={customStyles}
         defaultValue={selectedIngredientsAsDefault}
         instanceId={useId()}
         isMulti
