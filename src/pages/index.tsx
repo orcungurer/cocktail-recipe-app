@@ -9,11 +9,8 @@ import Select, { ActionMeta, CSSObjectWithLabel } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "@/store/filter-slice";
 import { RootState } from "@/store";
-import { Inter } from "next/font/google";
 
 dotenv.config();
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface IngredientOption {
   value: string;
