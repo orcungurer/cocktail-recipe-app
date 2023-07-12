@@ -15,15 +15,14 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
 
   console.log(selectedIngredients);
 
-  // We map through the cocktails and check if each cocktail's
+  // we map through the cocktails and check if each cocktail's
   // ingredients are included in the selectedIngredients.
-  // If an ingredient is found in selectedIngredients,
-  // we store the number of matching ingredients.
-  // Then, we add the matchingIngredientsAmount property to each cocktail object.
-  // Next, we filter the cocktails based on the following conditions:
-  // - If no ingredients are selected, we render all cocktails.
-  // - If at least one ingredient is selected,
-  //   we render only the cocktails that have at least one matching ingredient.
+  // if an ingredient is found in selectedIngredients, we store matchingIngredientsAmount
+  // then, we add the matchingIngredientsAmount property to each cocktail object.
+  // next, we filter(render) the cocktails based on the following conditions:
+  // - if no ingredients are selected, we render the cocktail.
+  // - If at least one ingredient is selected, ->
+  //   and the cocktail has at least one matching ingredient, we render.
   const filteredCocktails = props.cocktails
     .map((cocktail) => {
       const matchingIngredientsAmount = cocktail.ingredients.filter(
