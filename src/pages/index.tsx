@@ -53,8 +53,10 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
     actionMeta: ActionMeta<IngredientOption>
   ) => {
     const mutableValue = Array.from(newValue); // or [...newValue]
+
     console.log("mutableValue", mutableValue);
     console.log("actionMeta", actionMeta);
+    
     if (actionMeta.action === "select-option") {
       dispatch(filterActions.addIngredient(actionMeta.option!.value));
     } else if (actionMeta.action === "remove-value") {
@@ -68,11 +70,11 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
   const customStyles = {
     control: (provided: CSSObjectWithLabel) => ({
       ...provided,
-      fontFamily: 'Inter, Arial, sans-serif',
+      fontFamily: "Inter, Arial, sans-serif",
     }),
     option: (provided: CSSObjectWithLabel) => ({
       ...provided,
-      fontFamily: 'Inter, Arial, sans-serif',
+      fontFamily: "Inter, Arial, sans-serif",
     }),
   };
 
