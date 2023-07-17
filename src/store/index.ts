@@ -11,4 +11,4 @@ export default store;
 
 // useSelector's state
 // usage: const .. = useSelector((state: RootState) => ..);
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;

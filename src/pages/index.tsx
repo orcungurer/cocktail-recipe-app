@@ -56,7 +56,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
 
     console.log("mutableValue", mutableValue);
     console.log("actionMeta", actionMeta);
-    
+
     if (actionMeta.action === "select-option") {
       dispatch(filterActions.addIngredient(actionMeta.option!.value));
     } else if (actionMeta.action === "remove-value") {

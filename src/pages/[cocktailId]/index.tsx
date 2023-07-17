@@ -27,9 +27,9 @@ const CocktailDetailsPage: React.FC<CocktailDetailProps> = (props) => {
     <Fragment>
       <Head>
         <title>{props.cocktailData.name}</title>
-        <meta 
+        <meta
           name="description"
-          content={`Prepare your ${props.cocktailData.name} drink with ease using the ingredients and step-by-step instructions provided.`} 
+          content={`Prepare your ${props.cocktailData.name} drink with ease using the ingredients and step-by-step instructions provided.`}
         />
       </Head>
       <CocktailDetail
@@ -58,7 +58,10 @@ export const getStaticPaths = async () => {
 
   // find all documents and only include the ID field but no any other
   // note. in js, find({}, { cocktailId: 1 }).toArray() would be enough
-  const cocktails = await cocktailsCollection.find({}).project({ cocktailId: 1 }).toArray();
+  const cocktails = await cocktailsCollection
+    .find({})
+    .project({ cocktailId: 1 })
+    .toArray();
 
   client.close();
 
@@ -83,7 +86,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const cocktailsCollection = db.collection("cocktails");
 
-  const selectedCocktail = await cocktailsCollection.findOne({ cocktailId: cocktailId });
+  const selectedCocktail = await cocktailsCollection.findOne({
+    cocktailId: cocktailId,
+  });
 
   return {
     props: {
