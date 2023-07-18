@@ -90,6 +90,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     cocktailId: cocktailId,
   });
 
+  client.close();
+
   return {
     props: {
       cocktailData: {
