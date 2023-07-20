@@ -1,0 +1,16 @@
+.searchbar {
+  margin-bottom: 1rem;
+}
+
+.searchbar input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.25rem;
+}
+
+.searchbar input::placeholder {
+  color: #808080;
+  font-weight: 400;
+}
