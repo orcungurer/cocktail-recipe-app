@@ -9,6 +9,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 const CocktailList: React.FC<CocktailsProps> = (props) => {
+  const searchbar = useSelector((state: RootState) => state.filter.searchbar);
   const selectedIngredients = useSelector(
     (state: RootState) => state.filter.selectedIngredients
   );
@@ -35,6 +36,19 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
       };
     })
     .filter((cocktail) => {
+      if (
+        searchbar !== "" &&
+        !cocktail.name.toLowerCase().includes(searchbar.toLowerCase())
+      ) {
+        return false;
+      }
+      if (
+        searchbar !== "" &&
+        cocktail.matchingIngredientsAmount > 0 &&
+        cocktail.name.toLowerCase().includes(searchbar.toLowerCase())
+      ) {
+        return true;
+      }
       if (
         selectedIngredients.length === 0 ||
         cocktail.matchingIngredientsAmount > 0
