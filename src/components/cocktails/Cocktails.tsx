@@ -6,6 +6,7 @@ import Select, { ActionMeta, CSSObjectWithLabel } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "@/store/filter-slice";
 import { RootState } from "@/store";
+import Searchbar from "../filter/Searchbar";
 
 interface IngredientOption {
   value: string;
@@ -74,6 +75,7 @@ const Cocktails: React.FC<CocktailsProps> = (props) => {
 
   return (
     <Fragment>
+      <Searchbar />
       <Select
         styles={customStyles}
         placeholder={"Select Ingredients..."}
