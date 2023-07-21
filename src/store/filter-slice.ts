@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface FilterState {
+  searchbar: string;
   selectedIngredients: string[];
 }
 
 const initialState: FilterState = {
+  searchbar: "",
   selectedIngredients: [],
 };
 
@@ -12,6 +14,9 @@ const filterSlice = createSlice({
   name: "filter",
   initialState: initialState,
   reducers: {
+    setSearchbar(state, action) {
+      state.searchbar = action.payload;
+    },
     addIngredient(state, action: PayloadAction<string>) {
       const addedItem = action.payload;
       state.selectedIngredients.push(addedItem);
