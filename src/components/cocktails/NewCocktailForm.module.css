@@ -1,3 +1,10 @@
+.card {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 40rem;
+  margin-top: 2rem;
+}
+
 .form {
   padding: 1rem;
 }

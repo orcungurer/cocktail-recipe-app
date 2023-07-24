@@ -50,7 +50,7 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
   };
 
   return (
-    <Card>
+    <Card className={classes.card}>
       <form onSubmit={submitHandler} className={classes.form}>
         <div className={classes.control}>
           <label htmlFor="name" className={inter.className}>

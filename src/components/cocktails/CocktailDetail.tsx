@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const CocktailDetail: React.FC<Cocktail> = (props) => {
   return (
-    <Card>
+    <Card className={classes.card}>
       <div className={classes.detail}>
         <h2 className={inter.className}>{props.name}</h2>
         <div className={classes.header}>
