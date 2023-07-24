@@ -1,4 +1,5 @@
-import { Fragment, useId } from "react";
+import classes from "./Filter.module.css";
+import { useId } from "react";
 import Select, { ActionMeta, CSSObjectWithLabel } from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActions } from "@/store/filter-slice";
@@ -72,19 +73,21 @@ const Filter: React.FC<CocktailsProps> = (props) => {
   };
 
   return (
-    <Fragment>
-      <Searchbar />
-      <Select
-        styles={customStyles}
-        placeholder={"Select Ingredients..."}
-        defaultValue={selectedIngredientsAsDefault}
-        instanceId={useId()}
-        isMulti
-        name="ingredients"
-        options={ingredientOptions}
-        onChange={selectIngredientsHandler}
-      />
-    </Fragment>
+    <div className={classes.banner}>
+      <div className={classes.filter}>
+        <Searchbar />
+        <Select
+          styles={customStyles}
+          placeholder={"Select Ingredients..."}
+          defaultValue={selectedIngredientsAsDefault}
+          instanceId={useId()}
+          isMulti
+          name="ingredients"
+          options={ingredientOptions}
+          onChange={selectIngredientsHandler}
+        />
+      </div>
+    </div>
   );
 };
 
