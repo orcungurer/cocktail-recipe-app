@@ -3,7 +3,6 @@ import CocktailItem from "./CocktailItem";
 import { CocktailsProps } from "@/models/cocktails";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
-import { Fragment } from "react";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -63,7 +62,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
   const cocktailAmountText = `${filteredCocktails.length} Cocktails`;
 
   return (
-    <Fragment>
+    <div className={classes["cocktail-list"]}>
       <p className={`${classes["cocktail-amount"]} ${inter.className}`}>
         {cocktailAmountText}
       </p>
@@ -82,7 +81,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
           />
         ))}
       </ul>
-    </Fragment>
+    </div>
   );
 };
 

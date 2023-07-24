@@ -1,3 +1,9 @@
+.cocktail-list {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 40rem;
+}
+
 .cocktail-amount {
   margin-top: 1rem;
   /* padding-bottom: 0.25rem;
