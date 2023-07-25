@@ -4,7 +4,7 @@ import { filterActions } from "@/store/filter-slice";
 import { RootState } from "@/store";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"]});
+const inter = Inter({ subsets: ["latin"] });
 
 const Searchbar = () => {
   const dispatch = useDispatch();
