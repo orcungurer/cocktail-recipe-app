@@ -27,6 +27,12 @@
   border: 1px solid #ccc;
 }
 
+/* .control textarea {
+  resize: vertical;
+  min-height: 3rem;
+  max-height: 12.5rem;
+} */
+
 .actions {
   text-align: right;
 }
