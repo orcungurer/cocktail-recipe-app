@@ -49,73 +49,55 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
     props.onAddCocktail(cocktailData);
   };
 
-  const placeholders = {
-    name: "Jager & Beer",
-    ingredients: "Jagermeister (1.5oz), Beer (12oz)",
-    instructions: "Step 1, Step 2, Step 3, ..",
-    notes: "It is recommended that ...",
-  };
+  const inputs = [
+    {
+      id: "name",
+      label: "Cocktail Name",
+      ref: name,
+      placeholder: "Jager & Beer",
+      required: true,
+    },
+    {
+      id: "ingredients",
+      label: "Cocktail Ingredients",
+      ref: ingredients,
+      placeholder: "Jagermeister (1.5oz), Beer (12oz)",
+      required: true,
+    },
+    {
+      id: "instructions",
+      label: "Cocktail Instructions",
+      ref: instructions,
+      placeholder: "Step 1, Step 2, Step 3, ..",
+      required: true,
+    },
+    {
+      id: "notes",
+      label: "Cocktail Notes",
+      ref: notes,
+      placeholder: "It is recommended that ...",
+      required: false,
+    },
+  ];
 
   return (
     <Card className={classes.card}>
       <form onSubmit={submitHandler} className={classes.form}>
-        <div className={classes.control}>
-          <label htmlFor="name" className={inter.className}>
-            Cocktail Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            ref={name}
-            required
-            className={inter.className}
-            placeholder={placeholders.name}
-          />
-        </div>
-        {/* <div className={classes.control}>
-          <label htmlFor="image" className={inter.className}>
-            Cocktail Image
-          </label>
-          <input type="text" id="image" ref={image} />
-        </div> */}
-        <div className={classes.control}>
-          <label htmlFor="ingredients" className={inter.className}>
-            Cocktail Ingredients
-          </label>
-          <input
-            type="text"
-            id="ingredients"
-            ref={ingredients}
-            required
-            className={inter.className}
-            placeholder={placeholders.ingredients}
-          />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="intructions" className={inter.className}>
-            Cocktail Instructions
-          </label>
-          <input
-            type="text"
-            id="intructions"
-            ref={instructions}
-            required
-            className={inter.className}
-            placeholder={placeholders.instructions}
-          />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="notes" className={inter.className}>
-            Cocktail Notes
-          </label>
-          <input
-            type="text"
-            id="notes"
-            ref={notes}
-            className={inter.className}
-            placeholder={placeholders.notes}
-          />
-        </div>
+        {inputs.map((input) => (
+          <div key={input.id} className={classes.control}>
+            <label htmlFor={input.id} className={inter.className}>
+              {input.label}
+            </label>
+            <input
+              type="text"
+              className={inter.className}
+              id={input.id}
+              ref={input.ref}
+              required={input.required}
+              placeholder={input.placeholder}
+            />
+          </div>
+        ))}
         <div className={classes.actions}>
           <button>Submit</button>
         </div>
