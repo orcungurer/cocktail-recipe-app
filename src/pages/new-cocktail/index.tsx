@@ -8,9 +8,9 @@ const NewCocktailPage = () => {
 
   const addCocktailHandler = async (enteredCocktail: {
     name: string;
-    image?: string;
-    ingredients?: string;
-    instructions?: string;
+    // image?: string;
+    ingredients: string;
+    instructions: string;
     notes?: string;
     date: string;
   }) => {
