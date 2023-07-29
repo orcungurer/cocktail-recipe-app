@@ -33,7 +33,11 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
     const enteredInstructions = instructions.current!.value;
     const enteredNotes = notes.current?.value;
 
-    if (enteredName.trim().length === 0) {
+    if (
+      enteredName.trim().length === 0 ||
+      enteredIngredients.trim().length === 0 ||
+      enteredInstructions.trim().length === 0
+    ) {
       return;
     }
 
