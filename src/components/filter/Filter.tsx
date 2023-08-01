@@ -61,6 +61,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
   };
 
   // to prevent provided error, used CSSObjectWithLabel as type
+  // for styles, we could also use StylesConfig of react-select
   const customStyles = {
     control: (provided: CSSObjectWithLabel) => ({
       ...provided,
@@ -69,6 +70,20 @@ const Filter: React.FC<CocktailsProps> = (props) => {
     option: (provided: CSSObjectWithLabel) => ({
       ...provided,
       fontFamily: "Inter, Arial, sans-serif",
+    }),
+    multiValue: (styles: CSSObjectWithLabel) => {
+      return {
+        ...styles,
+        backgroundColor: 'lightsalmon',
+      };
+    },
+    multiValueRemove: (styles: CSSObjectWithLabel) => ({
+      ...styles,
+      // backgroundColor: 'rgba(255, 99, 71, 0.1)',
+      color: 'white',
+      ':hover': {
+        backgroundColor: 'rgba(255, 99, 71, 0.5)',
+      },
     }),
   };
 
