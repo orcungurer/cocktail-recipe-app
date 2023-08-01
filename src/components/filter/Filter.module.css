@@ -1,6 +1,9 @@
 .banner {
   position: relative;
-  padding: 10rem 0;
+  height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner::before {
@@ -19,7 +22,6 @@
 }
 
 .filter {
-  margin: 0 auto;
   max-width: 40rem;
   width: 90%;
 }
