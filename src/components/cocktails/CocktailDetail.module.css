@@ -84,9 +84,17 @@
   font-weight: 600;
 }
 
+.notes {
+  margin-bottom: 1rem;
+}
+
 .notes p {
   margin-top: 0.5rem;
   margin-left: 1rem;
+}
+
+.actions {
+  text-align: center;
 }
 
 @media screen and (max-width: 999px) {

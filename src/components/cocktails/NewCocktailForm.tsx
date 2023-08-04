@@ -2,6 +2,7 @@ import classes from "./NewCocktailForm.module.css";
 import { useRef } from "react";
 import Card from "../ui/Card";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,8 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
   const instructions = useRef<HTMLInputElement>(null);
   const notes = useRef<HTMLInputElement>(null);
   const date = new Date().toString();
+
+  const router = useRouter();
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -51,6 +54,10 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
     };
 
     props.onAddCocktail(cocktailData);
+  };
+
+  const goBackHandler = () => {
+    router.back();
   };
 
   const inputs = [
@@ -103,6 +110,13 @@ const NewCocktailForm: React.FC<NewCocktailFormProps> = (props) => {
           </div>
         ))}
         <div className={classes.actions}>
+          <button
+            type="button"
+            className={classes.cancel}
+            onClick={goBackHandler}
+          >
+            Cancel
+          </button>
           <button>Submit</button>
         </div>
       </form>

@@ -3,10 +3,17 @@ import Card from "../ui/Card";
 import Image from "next/image";
 import { Cocktail } from "@/models/cocktails";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const CocktailDetail: React.FC<Cocktail> = (props) => {
+  const router = useRouter();
+
+  const goBackHandler = () => {
+    router.back();
+  };
+
   return (
     <Card className={classes.card}>
       <div className={classes.detail}>
@@ -51,6 +58,11 @@ const CocktailDetail: React.FC<Cocktail> = (props) => {
         <div className={classes.notes}>
           <h3 className={inter.className}>NOTE</h3>
           <p className={inter.className}>{props.notes}</p>
+        </div>
+        <div className={classes.actions}>
+          <button type="button" onClick={goBackHandler}>
+            Return to Home
+          </button>
         </div>
       </div>
     </Card>
