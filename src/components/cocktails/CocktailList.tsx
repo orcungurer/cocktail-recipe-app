@@ -4,14 +4,17 @@ import { CocktailsProps } from "@/models/cocktails";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { Inter } from "next/font/google";
-import { useState } from "react";
+import { ReactNode } from "react";
 import PaginationButtons from "./PaginationButtons";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const ITEMS_PER_PAGE = 10;
 
 const CocktailList: React.FC<CocktailsProps> = (props) => {
+  const router = useRouter();
+
   const searchbar = useSelector((state: RootState) => state.filter.searchbar);
 
   const selectedIngredients = useSelector(
@@ -71,13 +74,29 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const currentCocktails = filteredCocktails.slice(startIndex, endIndex);
 
-  const cocktailAmountText = `${totalCocktails} cocktails`;
+  let cocktailAmountText: string | ReactNode = `${totalCocktails} cocktails`;
+
+  if (totalCocktails === 0) {
+    cocktailAmountText = (
+      <p className={`${classes["suggest-cocktail"]} ${inter.className}`}>
+        <span className={classes.title}>
+          Hmmm, looks like a new cocktail! 🍹
+        </span>
+        <span className={classes.desc}>
+          Wanna suggest adding it for others to enjoy?
+        </span>
+        <button type="button" onClick={() => router.push("/new-cocktail")}>
+          Suggest Cocktail
+        </button>
+      </p>
+    );
+  }
 
   return (
     <div className={classes["cocktail-list"]}>
-      <p className={`${classes["cocktail-amount"]} ${inter.className}`}>
+      <div className={`${classes["cocktail-amount"]} ${inter.className}`}>
         {cocktailAmountText}
-      </p>
+      </div>
       <ul className={classes.list}>
         {currentCocktails.map((cocktail) => (
           <CocktailItem
