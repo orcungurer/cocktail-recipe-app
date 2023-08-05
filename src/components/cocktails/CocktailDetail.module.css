@@ -52,13 +52,11 @@
 
 .amount {
   width: 4rem;
-  color: #333;
   font-weight: 600;
 }
 
 .name {
   flex-grow: 1;
-  color: #333;
 }
 
 .instructions {
@@ -80,7 +78,6 @@
 }
 
 .steps {
-  color: #333;
   font-weight: 600;
 }
 
