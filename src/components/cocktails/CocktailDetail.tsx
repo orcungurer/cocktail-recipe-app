@@ -61,7 +61,7 @@ const CocktailDetail: React.FC<Cocktail> = (props) => {
         </div>
         <div className={classes.actions}>
           <button type="button" onClick={goBackHandler}>
-            Return to Home
+            Back to Cocktail List
           </button>
         </div>
       </div>
