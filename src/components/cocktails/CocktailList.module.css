@@ -5,9 +5,25 @@
 }
 
 .cocktail-amount {
-  margin-top: 1rem;
+  margin-top: 2rem;
   /* padding-bottom: 0.25rem;
   border-bottom: 1px solid #858585; */
+}
+
+.suggest-cocktail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.suggest-cocktail .title {
+  font-size: 1.25rem;
+}
+
+.suggest-cocktail .desc {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .list {
