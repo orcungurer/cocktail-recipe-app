@@ -19,6 +19,8 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
   );
   // console.log(selectedIngredients);
 
+  const currentPage = useSelector((state: RootState) => state.ui.currentPage);
+
   // we map through the cocktails and check if each cocktail's
   // ingredients are included in the selectedIngredients.
   // if an ingredient is found in selectedIngredients, we store matchingIngredientsAmount
@@ -62,7 +64,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     });
   // console.log(filteredCocktails);
 
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const totalCocktails = filteredCocktails.length;
   const totalPages = Math.ceil(totalCocktails / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -93,8 +95,8 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
       </ul>
       {totalCocktails !== 0 && (
         <PaginationButtons
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
+          // currentPage={currentPage}
+          // setCurrentPage={setCurrentPage}
           totalPages={totalPages}
         />
       )}
