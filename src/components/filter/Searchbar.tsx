@@ -23,6 +23,7 @@ const Searchbar = () => {
         className={inter.className}
         onChange={inputChangeHandler}
         placeholder="Search Cocktail"
+        autoComplete="off"
       />
     </div>
   );
