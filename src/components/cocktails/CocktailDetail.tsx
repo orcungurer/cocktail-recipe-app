@@ -26,21 +26,21 @@ const CocktailDetail: React.FC<Cocktail> = (props) => {
             width={500}
             height={300}
           />
-          <div className={classes.ingredients}>
-            <h3 className={inter.className}>INGREDIENTS</h3>
-            <ul>
-              {props.ingredients.map((ingredient) => (
-                <li key={ingredient.name}>
-                  <span className={`${classes.amount} ${inter.className}`}>
-                    {ingredient.amount}
-                  </span>
-                  <span className={`${classes.name} ${inter.className}`}>
-                    {ingredient.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        </div>
+        <div className={classes.ingredients}>
+          <h3 className={inter.className}>INGREDIENTS</h3>
+          <ul>
+            {props.ingredients.map((ingredient) => (
+              <li key={ingredient.name}>
+                <span className={`${classes.amount} ${inter.className}`}>
+                  {ingredient.amount}
+                </span>
+                <span className={`${classes.name} ${inter.className}`}>
+                  {ingredient.name}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className={classes.instructions}>
           <h3 className={inter.className}>INSTRUCTIONS</h3>
