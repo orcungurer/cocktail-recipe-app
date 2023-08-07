@@ -51,7 +51,7 @@ const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
         </div>
         <div className={classes.actions}>
           <button className={inter.className} onClick={showDetailsHandler}>
-            Show Details
+            View Recipe
           </button>
         </div>
       </Card>
