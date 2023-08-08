@@ -4,9 +4,10 @@ import { CocktailsProps } from "@/models/cocktails";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import { Inter } from "next/font/google";
-import { ReactNode } from "react";
+import { ReactNode, useId, useState } from "react";
 import PaginationButtons from "./PaginationButtons";
 import { useRouter } from "next/router";
+import Select from "react-select";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,6 +68,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     });
   // console.log(filteredCocktails);
 
+  // pagination
   // const [currentPage, setCurrentPage] = useState(1);
   const totalCocktails = filteredCocktails.length;
   const totalPages = Math.ceil(totalCocktails / ITEMS_PER_PAGE);
@@ -92,10 +94,64 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     );
   }
 
+  // sorting current cocktails based on some criterias
+  const groupedOptions = [
+    {
+      label: "Name",
+      options: [
+        { value: "nameAZ", label: "(A-Z)" },
+        { value: "nameZA", label: "(Z-A)" },
+      ],
+    },
+    {
+      label: "Popularity",
+      options: [
+        { value: "popularityAsc", label: "(Low-High)" },
+        { value: "popularityDesc", label: "(High-Low)" },
+      ],
+    },
+    {
+      label: "Ingredients",
+      options: [
+        { value: "ingredientsAsc", label: "(Fewest-Most)" },
+        { value: "ingredientsDesc", label: "(Most-Fewest)" },
+      ],
+    },
+  ];
+
+  const [sortOrder, setSortOrder] = useState("popularityDesc");
+
+  const sortHandler = (event: any) => {
+    setSortOrder(event.value);
+  };
+  
+  if (sortOrder === "nameAZ") {
+    currentCocktails.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sortOrder === "nameZA") {
+    currentCocktails.sort((a, b) => b.name.localeCompare(a.name));
+  } else if (sortOrder === "popularityAsc") {
+    currentCocktails.sort((a, b) => Number(b.cocktailId) - Number(a.cocktailId));
+  } else if (sortOrder === "popularityDesc") {
+    currentCocktails.sort((a, b) => Number(a.cocktailId) - Number(b.cocktailId));
+  } else if (sortOrder === "ingredientsAsc") {
+    currentCocktails.sort((a, b) => a.ingredients.length - b.ingredients.length);
+  } else if (sortOrder === "ingredientsDesc") {
+    currentCocktails.sort((a, b) => b.ingredients.length - a.ingredients.length);
+  }
+
   return (
     <div className={classes["cocktail-list"]}>
-      <div className={`${classes["cocktail-amount"]} ${inter.className}`}>
+      <div className={`${classes.header} ${inter.className}`}>
         {cocktailAmountText}
+        <div className={classes.sort}>
+          <Select
+            options={groupedOptions}
+            placeholder="Sort By..."
+            isSearchable={false}
+            instanceId={useId()}
+            onChange={sortHandler}
+          />
+        </div>
       </div>
       <ul className={classes.list}>
         {currentCocktails.map((cocktail) => (
