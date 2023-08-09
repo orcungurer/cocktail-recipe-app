@@ -93,7 +93,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
         <Searchbar />
         <Select
           styles={customStyles}
-          placeholder={"Select Ingredients..."}
+          placeholder="Select Ingredients..."
           defaultValue={selectedIngredientsAsDefault}
           instanceId={useId()}
           isMulti
