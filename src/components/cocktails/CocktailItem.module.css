@@ -67,6 +67,16 @@
   width: 100%;
 }
 
+.cocktail h4::selection,
+.cocktail p::selection {
+  background-color: lightsalmon;
+}
+
+.ingredients span::selection,
+.actions button::selection {
+  background-color: transparent;
+}
+
 @media screen and (max-width: 999px) {
   .item {
     width: 100%;
