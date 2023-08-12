@@ -83,7 +83,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     cocktailAmountText = (
       <p className={`${classes["suggest-cocktail"]} ${inter.className}`}>
         <span className={classes.title}>
-          Hmmm, looks like a new cocktail! 🍹
+          Hmmm, looks like a new cocktail! 🍸
         </span>
         <span className={classes.desc}>
           Wanna suggest adding it for others to enjoy?
@@ -140,9 +140,13 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     currentCocktails.sort((a, b) => b.ingredients.length - a.ingredients.length);
   }
 
+  const headerCss = `${classes.header} ${inter.className} ${
+    totalCocktails === 0 ? classes.centeredHeader : ""
+  }`;
+
   return (
     <div className={classes["cocktail-list"]}>
-      <div className={`${classes.header} ${inter.className}`}>
+      <div className={headerCss}>
         {cocktailAmountText}
         {totalCocktails !== 0 && (
           <div className={classes.sort}>

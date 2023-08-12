@@ -13,6 +13,10 @@
   border-bottom: 1px solid #858585; */
 }
 
+.centeredHeader {
+  justify-content: center;
+}
+
 .sort {
   width: 10rem;
 }
