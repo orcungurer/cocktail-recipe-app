@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ["latin"] });
 const ITEMS_PER_PAGE = 10;
 
 const CocktailList: React.FC<CocktailsProps> = (props) => {
+  const uniqueInstanceId = useId();
   const router = useRouter();
 
   const searchbar = useSelector((state: RootState) => state.filter.searchbar);
@@ -143,15 +144,17 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     <div className={classes["cocktail-list"]}>
       <div className={`${classes.header} ${inter.className}`}>
         {cocktailAmountText}
-        <div className={classes.sort}>
-          <Select
-            options={groupedOptions}
-            placeholder="Sort By..."
-            isSearchable={false}
-            instanceId={useId()}
-            onChange={sortHandler}
-          />
-        </div>
+        {totalCocktails !== 0 && (
+          <div className={classes.sort}>
+            <Select
+              options={groupedOptions}
+              placeholder="Sort By..."
+              isSearchable={false}
+              instanceId={uniqueInstanceId}
+              onChange={sortHandler}
+            />
+          </div>
+        )}
       </div>
       <ul className={classes.list}>
         {currentCocktails.map((cocktail) => (
