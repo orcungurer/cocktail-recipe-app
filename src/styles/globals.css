@@ -43,16 +43,17 @@ p {
 button {
   cursor: pointer;
   font-weight: 500;
-  color: lightsalmon;
-  background-color: transparent;
-  border: 1px solid lightsalmon;
+  color: white;
+  background-color: #f57980;
+  border: 1px solid #f57980;
   border-radius: 0.25rem;
   padding: 0.5rem 1.5rem;
 }
 
 button:hover,
 button:active {
-  background-color: lightsalmon;
+  background-color: #f35760;
+  border: 1px solid #f35760;
   color: white;
 }
 

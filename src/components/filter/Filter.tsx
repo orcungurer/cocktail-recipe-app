@@ -74,7 +74,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
     multiValue: (styles: CSSObjectWithLabel) => {
       return {
         ...styles,
-        backgroundColor: "lightsalmon",
+        backgroundColor: "#e4e4e4",
       };
     },
     multiValueRemove: (styles: CSSObjectWithLabel) => ({
@@ -82,7 +82,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
       // backgroundColor: 'rgba(255, 99, 71, 0.1)',
       color: "white",
       ":hover": {
-        backgroundColor: "rgba(255, 99, 71, 0.5)",
+        backgroundColor: "#f57980",
       },
     }),
   };

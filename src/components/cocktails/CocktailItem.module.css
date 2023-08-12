@@ -1,5 +1,5 @@
 .item {
-  margin: 1rem 0;
+  margin-top: 1rem;
   /* cursor: pointer; */
   width: calc(50% - 0.5rem);
 }
@@ -22,7 +22,7 @@
 }
 
 .cocktail h4 {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .ingredients {
@@ -45,8 +45,8 @@
 }
 
 .ingredients span {
-  font-size: 0.85rem;
-  background-color: lightsalmon;
+  font-size: 0.80rem;
+  background-color: #e4e4e4;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   width: fit-content;
@@ -55,7 +55,7 @@
 
 .cocktail p {
   color: #a2a2a2;
-  font-size: 0.85rem;
+  font-size: 0.80rem;
 }
 
 .actions {
@@ -69,7 +69,11 @@
 
 .cocktail h4::selection,
 .cocktail p::selection {
-  background-color: lightsalmon;
+  background-color: #f57980;
+}
+
+.cocktail p::selection {
+  color: #333;
 }
 
 .ingredients span::selection,
