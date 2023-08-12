@@ -82,7 +82,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
       // backgroundColor: 'rgba(255, 99, 71, 0.1)',
       color: "white",
       ":hover": {
-        backgroundColor: "#f57980",
+        backgroundColor: "#dc4f57",
       },
     }),
   };
