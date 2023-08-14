@@ -2,10 +2,11 @@ import classes from "./CocktailDetail.module.css";
 import Card from "../ui/Card";
 import Image from "next/image";
 import { Cocktail } from "@/models/cocktails";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 const CocktailDetail: React.FC<Cocktail> = (props) => {
   const router = useRouter();
@@ -17,7 +18,7 @@ const CocktailDetail: React.FC<Cocktail> = (props) => {
   return (
     <Card className={classes.card}>
       <div className={classes.detail}>
-        <h2 className={inter.className}>{props.name}</h2>
+        <h2 className={playfair.className}>{props.name}</h2>
         <div className={classes.header}>
           <Image
             src={props.image}

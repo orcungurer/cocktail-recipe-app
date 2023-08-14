@@ -1,11 +1,12 @@
 import classes from "./CocktailItem.module.css";
 import Card from "../ui/Card";
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { useRouter } from "next/router";
 import { Cocktail } from "@/models/cocktails";
 
 const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 interface CocktailWithMatchingIngredients extends Cocktail {
   matchingIngredientsAmount: number;
@@ -39,7 +40,7 @@ const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
           height={300}
         />
         <div className={classes.cocktail}>
-          <h4 className={inter.className}>{props.name}</h4>
+          <h4 className={playfair.className}>{props.name}</h4>
           <div className={`${classes.ingredients} ${classes.scrollable}`}>
             {props.ingredients.map((ingredient) => (
               <span key={ingredient.name} className={inter.className}>
