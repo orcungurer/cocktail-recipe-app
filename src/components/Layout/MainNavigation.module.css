@@ -1,5 +1,5 @@
 .header {
-  background-color: lightsalmon;
+  background-color: #dc4f57;
   width: 100%;
   height: 4rem;
   padding: 0 5rem;
@@ -12,9 +12,13 @@
 }
 
 .logo {
-  color: white;
-  font-size: 2rem;
-  font-weight: 500;
+  display: flex;
+}
+
+.logo img {
+  cursor: pointer;
+  height: 3rem;
+  width: 15rem;
 }
 
 .header ul {

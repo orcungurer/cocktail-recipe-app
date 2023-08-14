@@ -1,14 +1,23 @@
 import classes from "./MainNavigation.module.css";
 import Link from "next/link";
 import { Inter } from "next/font/google";
+import Image from "next/image";
+import logo from "../../assets/cocktailpantone.svg";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const MainNavigation = () => {
+  const router = useRouter();
+
+  const navigateHandler = () => {
+    router.push("/");
+  };
+
   return (
     <header className={classes.header}>
-      <div className={`${classes.logo} ${inter.className}`}>
-        Cocktail Recipe
+      <div onClick={navigateHandler} className={classes.logo}>
+        <Image src={logo} alt="logo" />
       </div>
       <nav>
         <ul>
