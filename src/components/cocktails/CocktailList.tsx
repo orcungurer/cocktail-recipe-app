@@ -112,7 +112,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
       ],
     },
     {
-      label: "Ingredients",
+      label: "Total Ingredients",
       options: [
         { value: "ingredientsAsc", label: "(Fewest-Most)" },
         { value: "ingredientsDesc", label: "(Most-Fewest)" },
