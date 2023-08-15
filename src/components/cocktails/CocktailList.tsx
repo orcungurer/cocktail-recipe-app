@@ -144,6 +144,16 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     totalCocktails === 0 ? classes.centeredHeader : ""
   }`;
 
+  const customTheme = (theme: any) => ({
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary50: "#f35760",
+      primary25: "#f57980",
+      primary: "#dc4f57",
+    },
+  });
+
   return (
     <div className={classes["cocktail-list"]}>
       <div className={headerCss}>
@@ -156,6 +166,7 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
               isSearchable={false}
               instanceId={uniqueInstanceId}
               onChange={sortHandler}
+              theme={customTheme}
             />
           </div>
         )}

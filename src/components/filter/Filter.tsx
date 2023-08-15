@@ -80,12 +80,23 @@ const Filter: React.FC<CocktailsProps> = (props) => {
     multiValueRemove: (styles: CSSObjectWithLabel) => ({
       ...styles,
       // backgroundColor: 'rgba(255, 99, 71, 0.1)',
-      color: "white",
+      color: "grey",
       ":hover": {
+        color: "white",
         backgroundColor: "#dc4f57",
       },
     }),
   };
+
+  const customTheme = (theme: any) => ({
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary50: "#f35760",
+      primary25: "#f57980",
+      primary: "#dc4f57",
+    },
+  });
 
   return (
     <div className={classes.banner}>
@@ -100,6 +111,7 @@ const Filter: React.FC<CocktailsProps> = (props) => {
           name="ingredients"
           options={ingredientOptions}
           onChange={selectIngredientsHandler}
+          theme={customTheme}
         />
       </div>
     </div>
