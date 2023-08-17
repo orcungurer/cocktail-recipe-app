@@ -104,13 +104,13 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
         { value: "nameZA", label: "(Z-A)" },
       ],
     },
-    {
-      label: "Popularity",
-      options: [
-        { value: "popularityAsc", label: "(Low-High)" },
-        { value: "popularityDesc", label: "(High-Low)" },
-      ],
-    },
+    // {
+    //   label: "Popularity",
+    //   options: [
+    //     { value: "popularityAsc", label: "(Low-High)" },
+    //     { value: "popularityDesc", label: "(High-Low)" },
+    //   ],
+    // },
     {
       label: "Total Ingredients",
       options: [
@@ -130,11 +130,13 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     currentCocktails.sort((a, b) => a.name.localeCompare(b.name));
   } else if (sortOrder === "nameZA") {
     currentCocktails.sort((a, b) => b.name.localeCompare(a.name));
-  } else if (sortOrder === "popularityAsc") {
-    currentCocktails.sort((a, b) => Number(b.cocktailId) - Number(a.cocktailId));
-  } else if (sortOrder === "popularityDesc") {
-    currentCocktails.sort((a, b) => Number(a.cocktailId) - Number(b.cocktailId));
-  } else if (sortOrder === "ingredientsAsc") {
+  } 
+  // else if (sortOrder === "popularityAsc") {
+  //   currentCocktails.sort((a, b) => Number(b.cocktailId) - Number(a.cocktailId));
+  // } else if (sortOrder === "popularityDesc") {
+  //   currentCocktails.sort((a, b) => Number(a.cocktailId) - Number(b.cocktailId));
+  // } 
+  else if (sortOrder === "ingredientsAsc") {
     currentCocktails.sort((a, b) => a.ingredients.length - b.ingredients.length);
   } else if (sortOrder === "ingredientsDesc") {
     currentCocktails.sort((a, b) => b.ingredients.length - a.ingredients.length);
