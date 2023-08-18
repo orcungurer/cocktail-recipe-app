@@ -148,15 +148,13 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
   } else if (sortOrder === "ingredientsLeftAsc") {
     currentCocktails.sort(
       (a, b) =>
-        a.ingredients.length -
-        a.matchingIngredientsAmount -
+        (a.ingredients.length - a.matchingIngredientsAmount) -
         (b.ingredients.length - b.matchingIngredientsAmount)
     );
   } else if (sortOrder === "ingredientsLeftDesc") {
     currentCocktails.sort(
       (a, b) =>
-        b.ingredients.length -
-        b.matchingIngredientsAmount -
+        (b.ingredients.length - b.matchingIngredientsAmount) -
         (a.ingredients.length - a.matchingIngredientsAmount)
     );
   }
