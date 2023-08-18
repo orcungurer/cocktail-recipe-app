@@ -118,6 +118,13 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
         { value: "ingredientsDesc", label: "(Most-Fewest)" },
       ],
     },
+    {
+      label: "Ingredients Left",
+      options: [
+        { value: "ingredientsLeftAsc", label: "(Fewest-Most)" },
+        { value: "ingredientsLeftDesc", label: "(Most-Fewest)" },
+      ],
+    },
   ];
 
   const [sortOrder, setSortOrder] = useState("popularityDesc");
@@ -140,6 +147,10 @@ const CocktailList: React.FC<CocktailsProps> = (props) => {
     currentCocktails.sort((a, b) => a.ingredients.length - b.ingredients.length);
   } else if (sortOrder === "ingredientsDesc") {
     currentCocktails.sort((a, b) => b.ingredients.length - a.ingredients.length);
+  } else if (sortOrder === "ingredientsLeftAsc") {
+    currentCocktails.sort((a, b) => (a.ingredients.length - a.matchingIngredientsAmount) - (b.ingredients.length - b.matchingIngredientsAmount));
+  } else if (sortOrder === "ingredientsLeftDesc") {
+    currentCocktails.sort((a, b) => (b.ingredients.length - b.matchingIngredientsAmount) - (a.ingredients.length - a.matchingIngredientsAmount));
   }
 
   const headerCss = `${classes.header} ${inter.className} ${
