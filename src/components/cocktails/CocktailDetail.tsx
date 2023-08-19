@@ -21,7 +21,7 @@ const CocktailDetail: React.FC<Cocktail> = (props) => {
         <h2 className={playfair.className}>{props.name}</h2>
         <div className={classes.header}>
           <Image
-            src={props.image}
+            src={`/images/${props.cocktailId}.jpg`}
             alt={props.name}
             className={classes.image}
             width={500}

@@ -33,7 +33,7 @@ const CocktailItem: React.FC<CocktailWithMatchingIngredients> = (props) => {
     <li className={classes.item}>
       <Card>
         <Image
-          src={props.image}
+          src={`/images/${props.cocktailId}.jpg`}
           alt={props.name}
           className={classes.image}
           width={500}
