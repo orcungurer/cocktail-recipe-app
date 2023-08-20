@@ -26,7 +26,7 @@ const CocktailDetailsPage: React.FC<CocktailDetailProps> = (props) => {
   return (
     <Fragment>
       <Head>
-        <title>{props.cocktailData.name}</title>
+        <title>{props.cocktailData.name} | Cocktail Pantone</title>
         <meta
           name="description"
           content={`Prepare your ${props.cocktailData.name} drink with ease using the ingredients and step-by-step instructions provided.`}

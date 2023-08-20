@@ -14,7 +14,7 @@ const HomePage: React.FC<CocktailsProps> = (props) => {
   return (
     <Fragment>
       <Head>
-        <title>Cocktail Recipe</title>
+        <title>Cocktail Pantone</title>
         <meta
           name="description"
           content="Explore our extensive collection of cocktails and find your perfect drink! Easily search for specific cocktails or utilize our ingredient filter feature to discover cocktails you can create using the ingredients you already have."
