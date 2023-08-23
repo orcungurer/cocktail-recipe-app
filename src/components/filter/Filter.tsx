@@ -48,8 +48,8 @@ const Filter: React.FC<CocktailsProps> = (props) => {
   ) => {
     const mutableValue = Array.from(newValue); // or [...newValue]
 
-    console.log("mutableValue", mutableValue);
-    console.log("actionMeta", actionMeta);
+    // console.log("mutableValue", mutableValue);
+    // console.log("actionMeta", actionMeta);
 
     if (actionMeta.action === "select-option") {
       dispatch(filterActions.addIngredient(actionMeta.option!.value));
